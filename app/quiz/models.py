@@ -3,17 +3,18 @@ from dataclasses import dataclass
 from sqlalchemy import Column, Integer, String, Boolean, ARRAY, ForeignKey
 
 from app.store.database.sqlalchemy_base import db
+from typing import Optional
 
 
 @dataclass
 class Theme:
-    id: int | None
+    id: Optional[int] = None
     title: str
 
 
 @dataclass
 class Question:
-    id: int | None
+    id: Optional[int] = None
     title: str
     theme_id: int
     answers: list["Answer"]
