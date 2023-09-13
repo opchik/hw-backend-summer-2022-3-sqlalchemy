@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from hashlib import sha256
 from typing import Optional
 
+from sqlalchemy import Column, BigInteger, String
+
 from app.store.database.sqlalchemy_base import db
 
 
@@ -21,4 +23,6 @@ class Admin:
 
 class AdminModel(db):
     __tablename__ = "admins"
-    pass
+    id = Column(BigInteger, primary_key=True)
+    email = Column(String, nullable=False)
+    password = Column(String, nullable=False)
